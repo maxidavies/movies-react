@@ -26,13 +26,15 @@ export function Search() {
           type="text"
           className={styles.searchInput}
           value={searchText}
+          autoFocus
+          placeholder="Título"
           onChange={(e) => {
-            setSearchText(e.target.value);
+            const value = e.target.value;
+            setSearchText(value);
+            history.push("/?search=" + value);
           }}
         />
-        <button type="submit" className={styles.searchButton}>
-          <FaSearch />
-        </button>
+        <FaSearch className={styles.searchButton} />
       </div>
     </form>
   );
